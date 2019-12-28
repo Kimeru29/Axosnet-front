@@ -1,0 +1,96 @@
+<form action="" method="post" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="columns is-vcentered">
+    <div
+      class="interactive-bg is-hidden-touch column has-background-primary is-8 is-flex"
+    >
+      <svg width="650" height="650" style="padding-top: 3rem;">
+        <image
+          xlink:href="../../../assets/img/registro.svg"
+          width="650"
+          height="650"
+        />
+      </svg>
+    </div>
+    <div class="login column is-4 ">
+      <section class="section">
+        <div class="has-text-centered">
+          <h2
+            class="is-size-1 has-text-centered is-uppercase has-text-weight-bold has-text-black"
+          >
+            Axos
+          </h2>
+        </div>
+
+        <div class="field">
+          <label class="label">Nombre</label>
+          <div class="control has-icons-right">
+            <input formControlName="nombre" class="input" type="text" />
+            <div *ngIf="f.nombre.touched && !f.nombre.valid">
+              <p class="has-text-danger" *ngIf="f.nombre.hasError('required')">
+                El nombre es requerido.
+              </p>
+              <span class="icon is-small is-right">
+                <i class="fa fa-user"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Correo</label>
+            <div class="control has-icons-right">
+              <input formControlName="correo" class="input" type="text" />
+              <div *ngIf="f.correo.touched && !f.correo.valid">
+                <p
+                  class="has-text-danger"
+                  *ngIf="f.correo.hasError('required')"
+                >
+                  El correo es requerido.
+                </p>
+                <p class="has-text-danger" *ngIf="f.correo.hasError('email')">
+                  El correo no tiene formato válido.
+                </p>
+              </div>
+              <span class="icon is-small is-right">
+                <i class="fa fa-envelope"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Contraseña</label>
+            <div class="control has-icons-right">
+              <input
+                formControlName="contrasena"
+                class="input"
+                type="password"
+              />
+              <div *ngIf="f.contrasena.touched && !f.contrasena.valid">
+                <p
+                  class="has-text-danger"
+                  *ngIf="f.contrasena.hasError('required')"
+                >
+                  La contraseña es requerida
+                </p>
+              </div>
+              <span class="icon is-small is-right">
+                <i class="fa fa-key"></i>
+              </span>
+            </div>
+          </div>
+          <div class="has-text-centered">
+            <button
+              type="submit"
+              class="button is-vcentered is-primary is-outlined"
+              [disabled]="!formulario.valid"
+            >
+              Registro!
+            </button>
+          </div>
+          <div class="has-text-centered">
+            <a href="login.html"> Ya tienes cuenta? Ingresa ahora!</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</form>
