@@ -17,9 +17,14 @@
         <div class="field">
           <label class="label">Email</label>
           <div class="control has-icons-right">
-            <input formControlName="nombre" class="input" type="text" />
-            <div *ngIf="f.nombre.touched && f.nombre.hasError('required')">
-              Required
+            <input formControlName="correo" class="input" type="text" />
+            <div *ngIf="f.correo.touched && !f.correo.valid">
+              <p class="has-text-danger" *ngIf="f.correo.hasError('required')">
+                El correo es requerido.
+              </p>
+              <p class="has-text-danger" *ngIf="f.correo.hasError('email')">
+                El correo no tiene formato válido.
+              </p>
             </div>
             <span class="icon is-small is-right">
               <i class="jam jam-user-circle"></i>
@@ -30,10 +35,15 @@
         <div class="field">
           <label class="label">Contraseña</label>
           <div class="control has-icons-right">
-            <input formControlName="contrasena" class="input" type="password" />
-            <!-- <div *ngIf="contrasena.touched && contrasena.hasError('required')">
-              Required
-            </div> -->
+            <input formControlName="password" class="input" type="password" />
+            <div *ngIf="f.password.touched && !f.password.valid">
+              <p
+                class="has-text-danger"
+                *ngIf="f.password.hasError('required')"
+              >
+                La contraseña es requerida
+              </p>
+            </div>
             <span class="icon is-small is-right">
               <i class="jam jam-key"></i>
             </span>
@@ -48,7 +58,9 @@
           </button>
         </div>
         <div class="has-text-centered">
-          <a href="signup.html"> Aún no tienes cuenta? Regístrate ahora!</a>
+          <a [routerLink]="['/registro']"
+            >Aún no tienes cuenta? Regístrate ahora!</a
+          >
         </div>
       </section>
     </div>
@@ -65,3 +77,4 @@
     </div>
   </div>
 </form>
+<router-outlet></router-outlet>

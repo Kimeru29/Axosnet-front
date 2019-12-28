@@ -10,8 +10,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class SesionRegistroComponent implements OnInit {
   formulario = this.fb.group({
-    nombre: ['', Validators.required],
-    contrasena: ['', Validators.required]
+    correo: ['', Validators.required],
+    password: ['', Validators.required]
   });
 
   constructor(private fb: FormBuilder, private logi: CuentaService) { }
