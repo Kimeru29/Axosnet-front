@@ -59,15 +59,11 @@
           <div class="field">
             <label class="label">Contraseña</label>
             <div class="control has-icons-right">
-              <input
-                formControlName="contrasena"
-                class="input"
-                type="password"
-              />
-              <div *ngIf="f.contrasena.touched && !f.contrasena.valid">
+              <input formControlName="password" class="input" type="password" />
+              <div *ngIf="f.password.touched && !f.password.valid">
                 <p
                   class="has-text-danger"
-                  *ngIf="f.contrasena.hasError('required')"
+                  *ngIf="f.password.hasError('required')"
                 >
                   La contraseña es requerida
                 </p>

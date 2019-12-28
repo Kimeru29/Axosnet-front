@@ -14,7 +14,7 @@ export class SesionLoginComponent implements OnInit {
   formulario = this.fb.group({
     nombre: ['', Validators.required],
     correo: ['', Validators.required],
-    contrasena: ['', Validators.required],
+    password: ['', Validators.required],
   });
 
   constructor(private registro: CuentaService, private fb: FormBuilder) { }
