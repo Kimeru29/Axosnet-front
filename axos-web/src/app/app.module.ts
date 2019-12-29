@@ -1,3 +1,4 @@
+import { RecibosService } from './services/recibos.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AccountService as AccountService } from './services/cuenta.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,6 +14,7 @@ import { LandPageInicialComponent } from './components/land-page-inicial/land-pa
 import { SesionRegistroComponent } from './components/sesion-registro/sesion-registro.component';
 import { SesionLoginComponent } from './components/sesion-login/sesion-login.component';
 import { RecibosComponent } from './components/recibos/recibos.component';
+import { ReciboComponent } from './components/recibo/recibo.component';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
@@ -25,7 +27,8 @@ export function tokenGetter() {
     LandPageInicialComponent,
     SesionRegistroComponent,
     SesionLoginComponent,
-    RecibosComponent
+    RecibosComponent,
+    ReciboComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ export function tokenGetter() {
     })
   ],
   providers: [AccountService,
-    AuthGuardService],
+    AuthGuardService,
+    RecibosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
