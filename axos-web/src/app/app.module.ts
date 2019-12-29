@@ -1,3 +1,4 @@
+import { ProvedoresService } from './services/provedores.service';
 import { RecibosService } from './services/recibos.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AccountService as AccountService } from './services/cuenta.service';
@@ -15,6 +16,8 @@ import { SesionRegistroComponent } from './components/sesion-registro/sesion-reg
 import { SesionLoginComponent } from './components/sesion-login/sesion-login.component';
 import { RecibosComponent } from './components/recibos/recibos.component';
 import { ReciboComponent } from './components/recibo/recibo.component';
+import { RegistrarReciboComponent } from './components/registrar-recibo/registrar-recibo.component';
+import { EditarReciboComponent } from './components/editar-recibo/editar-recibo.component';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
@@ -28,7 +31,9 @@ export function tokenGetter() {
     SesionRegistroComponent,
     SesionLoginComponent,
     RecibosComponent,
-    ReciboComponent
+    ReciboComponent,
+    RegistrarReciboComponent,
+    EditarReciboComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +49,11 @@ export function tokenGetter() {
       }
     })
   ],
-  providers: [AccountService,
+  providers: [
+    AccountService,
     AuthGuardService,
-    RecibosService],
+    RecibosService,
+    ProvedoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

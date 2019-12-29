@@ -27,6 +27,8 @@ export class AccountService {
       .then(json => console.log(json));
   }
 
+
+
   async login(usuario: User): Promise<any> {
     console.log('Login');
 
@@ -38,22 +40,29 @@ export class AccountService {
     }).subscribe(response => {
       const token = (response as any).token;
       localStorage.setItem('jwt', token);
+
       this.loginInvalido = false;
-      this.router.navigate(['/']);
+      this.router.navigate(['recibosList']);
     }, err => {
       this.loginInvalido = true;
     });
   }
 
-  //   await fetch('https://localhost:5001/api/Cuentas', {
-  //   mode: 'cors',
-  //   method: 'POST',
-  //   body: JSON.stringify(usuario),
-  //   headers: {
-  //     'Content-type': 'application/json; charset=UTF-8'
-  //   }
-  // })
-  // .then(response => response.json())
-  // .then(json => console.log(json));
+  getUser(mail: string) {
+    fetch(`https://localhost:5001/api/Cuentas/usuario?correo=${mail}`, {
+      mode: 'cors',
+      method: 'Get',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      }
+    })
+      .then(
+        response => response.json()
+      )
+      .then(json => localStorage.setItem('usuario', JSON.stringify(json)));
+  }
 }
+
+
+
 

@@ -5,10 +5,11 @@ export class Recibo {
   id: number;
   nombre: string;
   monto: number;
-  divisa: Divisa;
+  divisa: number;
   estatus: boolean;
   metodoDePago: string;
   fecha: string;
   comentario: string;
-  provedor: string;
+  provedor: number;
+  usuarioId: any;
 }

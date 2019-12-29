@@ -24,6 +24,7 @@ export class SesionRegistroComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.logi.getUser(this.formulario.controls.correo.value.toString());
     this.logi.login(this.formulario.value);
   }
 
@@ -43,6 +44,10 @@ export class SesionRegistroComponent implements OnInit {
 
   public logOut = () => {
     localStorage.removeItem('jwt');
+  }
+
+  getUser(): void {
+
   }
 
 
