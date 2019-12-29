@@ -1,5 +1,5 @@
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { CuentaService } from './../../services/cuenta.service';
+import { AccountService } from './../../services/cuenta.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/models/User';
 
@@ -17,7 +17,7 @@ export class SesionLoginComponent implements OnInit {
     password: ['', Validators.required],
   });
 
-  constructor(private registro: CuentaService, private fb: FormBuilder) { }
+  constructor(private registro: AccountService, private fb: FormBuilder) { }
 
   ngOnInit() {
   }

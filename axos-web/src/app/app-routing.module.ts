@@ -3,10 +3,11 @@ import { SesionRegistroComponent } from './components/sesion-registro/sesion-reg
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SesionLoginComponent } from './components/sesion-login/sesion-login.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
-  { path: 'land', component: LandPageComponent },
+  { path: 'land', component: LandPageComponent, canActivate: [AuthGuardService] },
   {
     path: '',
     redirectTo: '/land',
